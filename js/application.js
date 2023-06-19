@@ -13,12 +13,12 @@
     tableau.extensions.initializeAsync({ 'configure':configure }).then(function () {
       // Draw the chart when initialising the dashboard.
       getSettings();
-      drawChartJS();
+      openAIResponse();
       // Set up the Settings Event Listener.
       unregisterMarkSelectionEventListener = tableau.extensions.settings.addEventListener(tableau.TableauEventType.SettingsChanged, (settingsEvent) => {
         // On settings change.
         getSettings();
-        drawChartJS();
+        openAIResponse();
       });
     }, function () { console.log('Error while Initializing: ' + err.toString()); });
   });
@@ -45,15 +45,15 @@
 
     // Add listener
     unregisterFilterEventListener = worksheet.addEventListener(tableau.TableauEventType.FilterChanged, (filterEvent) => {
-      drawChartJS();
+      openAIResponse();
     });
 
     unregisterMarkSelectionEventListener = worksheet.addEventListener(tableau.TableauEventType.MarkSelectionChanged, (filterEvent) => {
-      drawChartJS();
+      openAIResponse();
     });
   }
 
- function drawChartJS() {
+ function openAIResponse() {
   worksheet.getSummaryDataAsync().then(function (sumdata) {
     var labels = [];
     var data = [];
@@ -106,7 +106,7 @@ function callAzureOpenAIAPI(inputData, callback) {
     const popupUrl=`${window.location.origin}/dialog.html`;
     let defaultPayload="";
     tableau.extensions.ui.displayDialogAsync(popupUrl, defaultPayload, { height:300, width:500 }).then((closePayload) => {
-      drawChartJS();
+      openAIResponse();
     }).catch((error) => {
       switch (error.errorCode) {
         case tableau.ErrorCodes.DialogClosedByUser:
