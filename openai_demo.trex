@@ -3,11 +3,11 @@
   <dashboard-extension id="com.tableaumagic" extension-version="0.1.3">
     <default-locale>en_US</default-locale>
     <name resource-id=""/>
-    <description>Tableau Data Extension Part One</description>
+    <description>Slalom Demo AI Extension</description>
     <author name="Slalom AI Demo" email="Demo@Slalom.com" organization="Slalom" website="https://tableau.slalom_demo.com"/>
     <min-api-version>0.9</min-api-version>
     <source-location>
-      <url>http://localhost:8080</url>
+      <url>https://github.com/Yajing22/tableau_ai_extension</url>
     </source-location>
     <icon></icon>
     <permissions>
