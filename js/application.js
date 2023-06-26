@@ -85,7 +85,7 @@ function callAzureOpenAIAPI(inputData, callback) {
     body: JSON.stringify({
       'model' :  "gpt-3.5-turbo",
       'messages' : [
-        {'role': 'user', 'content': 'summarize reviews below into 3 insights and each in 10 words, satrt with numeric counts such as 1. 2.'},
+        {'role': 'user', 'content': 'summarize reviews below into 3 insights and each in 10 words, start with numeric counts such as 1. 2.'},
         {'role': 'assistant', 'content': text}
       ],
       max_tokens: 50,
